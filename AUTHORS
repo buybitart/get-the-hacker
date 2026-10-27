@@ -1,0 +1,9 @@
+Get the hacker (GTH)
+Author: Aliaksandr Zasinets
+Copyright (C) 2026 Aliaksandr Zasinets
+
+First-party GTH code and documentation: GPL-2.0-only.
+See LICENSE for the full license text.
+
+Scapy is third-party code. Its authors, copyright notices, and license stay in vendor/.
+See THIRD_PARTY.md. This project does not claim authorship of Scapy.

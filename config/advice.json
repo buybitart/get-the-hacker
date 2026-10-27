@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "methods": [
+    {
+      "rule_id": "deauth_burst",
+      "name": "Deauth and Disassociation",
+      "description": "Deauth ends authentication. Disassociation ends an AP link. Both also occur in normal use.",
+      "advice": "Check AP restart logs. Check PMF support on the AP and clients. PMF protects selected management frames. It does not stop all radio loss.",
+      "limit": "One disconnect is not an attack. AP work can also cause a burst.",
+      "sources": [
+        "docs/DETECTION.md"
+      ]
+    },
+    {
+      "rule_id": "active_recon",
+      "name": "Directed Probe activity",
+      "description": "Probe Requests ask for Wi-Fi networks. Normal phones also send them.",
+      "advice": "Check the listed Probe Requests. Do not block a device from this observation alone.",
+      "limit": "A passive receiver sends no frames. MAC rotation does not prove one device.",
+      "sources": [
+        "docs/DETECTION.md"
+      ]
+    },
+    {
+      "rule_id": "possible_evil_twin",
+      "name": "Evil Twin indicators",
+      "description": "An AP can copy a network name. A name match alone is not proof.",
+      "advice": "Check the BSSID and security on your router. Remove wrong saved network profiles after this check.",
+      "limit": "A guest AP can use the same name. A clone with the same security can pass this check.",
+      "sources": [
+        "docs/DETECTION.md"
+      ]
+    },
+    {
+      "rule_id": "ap_policy_change",
+      "name": "AP security policy change",
+      "description": "An AP security setting can change. GTH can compare saved policy with observed fields.",
+      "advice": "Check the router security policy. Confirm the BSSID and the intended PMF and AKM settings.",
+      "limit": "A real admin change can match this rule. A BSSID is not an AP identity proof.",
+      "sources": [
+        "docs/DETECTION.md"
+      ]
+    },
+    {
+      "rule_id": "possible_karma",
+      "name": "Multi-SSID response indicators",
+      "description": "Some AP tools answer requests for many network names.",
+      "advice": "Check the responding BSSID. Review saved Wi-Fi profiles and auto-connect settings.",
+      "limit": "The source uses an active challenge. Passive GTH does not send that challenge.",
+      "sources": [
+        "docs/DETECTION.md"
+      ]
+    },
+    {
+      "rule_id": "handshake_attempt_burst",
+      "name": "EAPOL retry indicators",
+      "description": "Repeated WPA attempts can use different M2 nonces.",
+      "advice": "Check AP authentication logs. Check the client password. Use a strong Wi-Fi password.",
+      "limit": "A bad saved password or missing capture frames can match. Offline password tests are not visible.",
+      "sources": [
+        "docs/DETECTION.md"
+      ]
+    },
+    {
+      "rule_id": "auth_failure_burst",
+      "name": "Authentication failure indicators",
+      "description": "An AP can return a failure status during authentication.",
+      "advice": "Check AP logs and client settings before changing access rules.",
+      "limit": "Failure frames do not show intent or a password.",
+      "sources": [
+        "docs/DETECTION.md"
+      ]
+    },
+    {
+      "rule_id": "assoc_failure_burst",
+      "name": "Association rejection indicators",
+      "description": "An AP can reject an Association or Reassociation request.",
+      "advice": "Check AP client limits and access settings. Compare the reject status with AP logs.",
+      "limit": "AP limits and client settings can cause rejects.",
+      "sources": [
+        "docs/DETECTION.md"
+      ]
+    },
+    {
+      "rule_id": "wps_failure_burst",
+      "name": "WPS failure indicators",
+      "description": "WPS messages contain message types, nonces, and Config Error values.",
+      "advice": "Turn off WPS if it is not needed. Check AP WPS logs.",
+      "limit": "Normal setup retries can fail. A WPS message does not expose a PIN guess.",
+      "sources": [
+        "docs/DETECTION.md"
+      ]
+    }
+  ]
+}
