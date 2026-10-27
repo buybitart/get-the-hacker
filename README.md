@@ -2,6 +2,9 @@
 
 **Walk. Scan. Detect. Understand.**
 
+<img width="1080" height="1080" alt="gth" src="https://github.com/user-attachments/assets/9dde7346-e153-4819-8ec2-c8696956f359" />
+
+
 GTH is a passive Wi-Fi WIDS by **Aliaksandr Zasinets**.
 It checks received frames for attack signs. It saves Evidence.
 License: **GPL-2.0-only**.
